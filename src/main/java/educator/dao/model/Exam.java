@@ -27,32 +27,20 @@ public class Exam implements Serializable {
     @Column(name = "id")
     long id;
 
-    @Column( name = "code" )
-    private ExamType code;
+    @Column( name = "type" )
+    private ExamType type;
 
     @Column( name = "uni_id" )
     private long universityId;
-
-    @Column( name = "is_visible" )
-    private Boolean isVisible;
 
     @Column( name = "description" )
     private String description;
 
     @Column( name = "min_requirement" )
-    private Country country;
-
-    @Column( name = "city" )
-    private City city;
-
-    @Column( name = "deadline" )
-    private Date deadline;
+    private Double minRequirements;
 
     @Column( name = "created_at" )
     private Date createdAt;
-
-    @Column( name = "scholarship_opp" )
-    private Boolean scholarshipOpp;
 
     public Exam()
     {
@@ -60,5 +48,74 @@ public class Exam implements Serializable {
     }
 
 
+    public long getId()
+    {
+        return id;
+    }
 
+
+    public void setId( final long id )
+    {
+        this.id = id;
+    }
+
+
+    public ExamType getType()
+    {
+        return type;
+    }
+
+
+    public void setType( final ExamType type )
+    {
+        this.type = type;
+    }
+
+
+    public long getUniversityId()
+    {
+        return universityId;
+    }
+
+
+    public void setUniversityId( final long universityId )
+    {
+        this.universityId = universityId;
+    }
+
+
+    public String getDescription()
+    {
+        return description;
+    }
+
+
+    public void setDescription( final String description )
+    {
+        this.description = description;
+    }
+
+
+    public Double getMinRequirements()
+    {
+        return minRequirements;
+    }
+
+
+    public void setMinRequirements( final Double minRequirements )
+    {
+        this.minRequirements = minRequirements;
+    }
+
+
+    public Date getCreatedAt()
+    {
+        return createdAt;
+    }
+
+
+    public void setCreatedAt( final Date createdAt )
+    {
+        this.createdAt = createdAt;
+    }
 }

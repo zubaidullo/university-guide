@@ -31,7 +31,7 @@
 
         </#macro>
 
-  <@layout.myLayout "Home page">
+  <@layout.myLayout "University Guide in Central Asia">
 
 
     <div class="banner">
@@ -46,7 +46,7 @@
                   <h3>Enter your test score, find your University</h3><br>
                   <div class="col-sm-10 dropdown-buttons">
                     <div class="col-sm-2 dropdown-button"></div>
-                    <form id="search_form" action="/university/search" method="POST">
+                    <form id="search_form" action="/universities" method="POST">
                       <div class="col-sm-3 dropdown-button">
                         <div class="section_1">
                           <select id="examType" name="examType" class="frm-field required">
@@ -56,14 +56,13 @@
                       </div>
                       <div class="col-sm-3 dropdown-button">
                         <div class="input-group">
-                          <input class="form-control has-dark-background" name="slider-name" id="slider-name" placeholder="Test score" type="text" required="">
+                          <input class="form-control has-dark-background" name="test-score" id="test-score" placeholder="Test score" type="text" required="">
                         </div>
                       </div>
                       <div class="col-sm-4 submit_button">
                           <input type="submit" value="Search for University">
                       </div>
                     </form>
-                    <a>I don't have Test Score</a>
                     <div class="clearfix"> </div>
                   </div>
                 </div>
@@ -95,13 +94,13 @@
           </div><!-- /.news-small -->
         </div>
         <div class="col-md-7 grid_1_right">
-          <h2>Programs</h2>
+          <h2>Practise tests</h2>
           <div class="but_list">
             <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
               <ul id="myTab" class="nav nav-tabs nav-tabs1" role="tablist">
-                <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Day 1&nbsp;&nbsp;&nbsp;31-08-2015</a></li>
-                <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Day 2&nbsp;&nbsp;&nbsp;01-09-2015</a></li>
-                <li role="presentation"><a href="#profile1" role="tab" id="profile-tab1" data-toggle="tab" aria-controls="profile1">Day 3&nbsp;&nbsp;&nbsp;05-09-2015</a></li>
+                <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">SAT</a></li>
+                <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">TOEFL</a></li>
+                <li role="presentation"><a href="#profile1" role="tab" id="profile-tab1" data-toggle="tab" aria-controls="profile1">ORT</a></li>
               </ul>
               <div id="myTabContent" class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
@@ -241,19 +240,6 @@
           </div>
         </div>
         <div class="clearfix"> </div>
-      </div>
-    </div>
-    <div class="bg">
-      <div class="container">
-        <div class="timer_wrap">
-          <div id="counter"> </div>
-        </div>
-        <div class="newsletter">
-          <form>
-            <input type="text" name="ne" size="30" required="" placeholder="Please fill your email">
-            <input type="submit" value="Subscribe">
-          </form>
-        </div>
       </div>
     </div>
 

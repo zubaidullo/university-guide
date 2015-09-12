@@ -18,8 +18,6 @@ package controllers;
 
 import com.google.inject.Singleton;
 
-import filters.AuthenticatedFilter;
-import ninja.FilterWith;
 import ninja.Result;
 import ninja.Results;
 
@@ -28,10 +26,21 @@ import ninja.Results;
 public class MainController
 {
 
-    @FilterWith( AuthenticatedFilter.class )
     public Result index() {
 
-        return Results.html().template( "/views/MainController/specificUser.ftl.html" );
+        return Results.html();
+
+    }
+
+    public Result tipsAndAdvises() {
+
+        return Results.html().template( "/views/MainController/tipsAndAdvises.ftl.html" );
+
+    }
+
+    public Result about() {
+
+        return Results.html().template( "/views/MainController/about.ftl.html" );
 
     }
 

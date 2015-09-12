@@ -21,20 +21,8 @@ public class RegisterVerification implements Serializable
     @Column( name = "verification_code" )
     private String verificationCode;
 
-    @Column( name = "link_id" )
-    private String linkId;
-
     @Column( name = "created_at" )
     private Date created_at;
-
-    @Column( name = "name" )
-    private String name;
-
-    @Column( name = "phone_number" )
-    private String phoneNumber;
-
-    @Column( name = "password" )
-    private String password;
 
     @Column( name = "email" )
     private String email;
@@ -43,18 +31,6 @@ public class RegisterVerification implements Serializable
     public RegisterVerification()
     {
         created_at = new Date();
-    }
-
-
-    public Date getCreated_at()
-    {
-        return created_at;
-    }
-
-
-    public void setCreated_at( final Date created_at )
-    {
-        this.created_at = created_at;
     }
 
 
@@ -70,27 +46,15 @@ public class RegisterVerification implements Serializable
     }
 
 
-    public String getName()
+    public Date getCreated_at()
     {
-        return name;
+        return created_at;
     }
 
 
-    public void setName( final String name )
+    public void setCreated_at( final Date created_at )
     {
-        this.name = name;
-    }
-
-
-    public String getPassword()
-    {
-        return password;
-    }
-
-
-    public void setPassword( final String password )
-    {
-        this.password = password;
+        this.created_at = created_at;
     }
 
 
@@ -103,29 +67,5 @@ public class RegisterVerification implements Serializable
     public void setEmail( final String email )
     {
         this.email = email;
-    }
-
-
-    public String getPhoneNumber()
-    {
-        return phoneNumber;
-    }
-
-
-    public void setPhoneNumber( final String phoneNumber )
-    {
-        this.phoneNumber = phoneNumber;
-    }
-
-
-    public String getLinkId()
-    {
-        return linkId;
-    }
-
-
-    public void setLinkId( final String linkId )
-    {
-        this.linkId = linkId;
     }
 }

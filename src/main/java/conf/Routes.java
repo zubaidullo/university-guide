@@ -32,9 +32,17 @@ public class Routes implements ApplicationRoutes {
 
         // University
         router.GET().route("/universities").with( UniversityController.class, "getUniversities");
+        router.GET().route("/universities/add").with( UniversityController.class, "addUniversityView");
+        router.POST().route("/universities/add").with( UniversityController.class, "addUniversity");
         router.GET().route("/universities/{univ-id}").with( UniversityController.class, "getUniversity");
-        router.POST().route("/universities/search").with( UniversityController.class, "searchUniversity");
- 
+        router.POST().route("/universities").with( UniversityController.class, "searchUniversity");
+
+        // Tips & Advises
+        router.GET().route("/tips-advises").with( MainController.class, "tipsAndAdvises");
+
+        // About
+        router.GET().route("/about").with( MainController.class, "about");
+
         ///////////////////////////////////////////////////////////////////////
         // Assets (pictures / javascript)
         ///////////////////////////////////////////////////////////////////////    

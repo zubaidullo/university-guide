@@ -16,17 +16,15 @@
 
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <link href="/assets/theme/css/bootstrap-3.1.1.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
+    <link href="/assets/theme/css/style.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="/assets/theme/css/jquery.countdown.css" />
+    <link href="/assets/theme/css/font-awesome.css" rel="stylesheet">
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/assets/theme/js/jquery.min.js"></script>
     <script src="/assets/theme/js/bootstrap.min.js"></script>
-    <!-- Custom Theme files -->
-    <link href="/assets/theme/css/style.css" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="/assets/theme/css/jquery.countdown.css" />
-
-    <link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700' rel='stylesheet' type='text/css'>
-    <!----font-Awesome----->
-    <link href="/assets/theme/css/font-awesome.css" rel="stylesheet">
-    <!----font-Awesome----->
     <script>
       $(document).ready(function(){
         $(".dropdown").hover(
@@ -41,7 +39,6 @@
         );
       });
     </script>
-
     <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <@parentHead/>
 
@@ -65,10 +62,11 @@
         <#nested/>
 
         <#include "footer.ftl.html"/>
-        
-    <script src="/assets/theme/js/jquery.countdown.js"></script>
-    <script src="/assets/theme/js/script.js"></script>
-    <@parentScripts/>
+
+        <script src="/assets/theme/js/jquery.countdown.js"></script>
+        <!-- Data picker -->
+        <script src="/assets/theme/js/script.js"></script>
+        <@parentScripts/>
 </body>
 </html>
 </#macro>

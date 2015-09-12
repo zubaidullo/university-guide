@@ -43,8 +43,8 @@ public class UniversityDao extends AbstractDao<University> implements Dao<Univer
     {
         Criteria criteria = getCriteria();
         criteria.add( Restrictions.eq( "city", city ) );
-        List<University> foundUsers = criteria.list();
-        return CollectionUtils.isEmpty( foundUsers ) ? null : foundUsers.get( 0 );
+        List<University> found = criteria.list();
+        return CollectionUtils.isEmpty( found ) ? null : found.get( 0 );
     }
 
 }

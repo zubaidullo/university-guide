@@ -30,11 +30,7 @@ alter table `users` auto_increment = 100000;
 drop table if exists `register_verification`;
 create table `register_verification` (
   `verification_code` varchar(20) not null,
-  `link_id` varchar(100) not null,
-  `name` varchar(100) default NULL,
   `email` varchar(50) not null,
-  `password` varchar(255) not null,
-  `role` varchar(255) not null default 'USER',
   `created_at` timestamp not null default current_timestamp,
   primary key (`verification_code`),
   unique key `email` (`email`)
@@ -51,8 +47,10 @@ create table `universities` (
   `description` varchar(255),
   `country` varchar(10) default NULL,
   `city` varchar(100) default NULL,
-  `deadline` timestamp default NULL,
+  `deadline` timestamp,
   `created_at` timestamp not null,
+  `logo_url` varchar(30) default NULL,
+  `image_url` varchar(30) default NULL,
   `scholarship_opp` tinyint(1) default '0',
   primary key (`id`)
 );
@@ -62,31 +60,23 @@ create table `universities` (
 drop table if exists `exams`;
 create table `exams` (
   `id` int(11) not null auto_increment,
-  `code` varchar(50) not null,
+  `type` varchar(50) not null,
   `uni_id` int(11) default NULL,
-  `is_visible` tinyint(1) default '0',
   `description` varchar(255),
   `min_requirement` decimal(15,2) default '0.00',
   `created_at` timestamp not null,
-
-  primary key (`id`),
-  constraint `owner_fk` foreign key(`uni_id`) references `universities` (`id`) on update cascade
+  primary key (`id`)
 );
 
 # ===================================== User exam scores ==============================================================
 
-drop table if exists `exam_scores`;
-create table `exam_scores` (
+drop table if exists `user_exam_scores`;
+create table `user_exam_scores` (
   `id` int(11) not null auto_increment,
-  `code` varchar(50) not null,
-  `uni_id` int(11) default NULL,
-  `is_visible` tinyint(1) default '0',
-  `description` varchar(255),
-  `min_requirement` decimal(15,2) default '0.00',
-  `created_at` timestamp not null,
-
-  primary key (`id`),
-  constraint `owner_fk` foreign key(`uni_id`) references `universities` (`id`) on update cascade
+  `type` varchar(50) not null,
+  `user_id` int(11) default NULL,
+  `score`  decimal(15,2) default '0.00',
+  primary key (`id`)
 );
 
 # ===================================================================================================================

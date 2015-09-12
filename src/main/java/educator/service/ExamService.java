@@ -1,14 +1,16 @@
 package educator.service;
 
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.inject.Inject;
 
 import educator.dao.ExamDao;
 import educator.dao.UniversityDao;
-import educator.dao.UserDao;
+import educator.dao.model.Exam;
+import educator.dao.model.ExamType;
+import educator.dao.model.University;
 
 
 /**
@@ -21,14 +23,16 @@ public class ExamService
     UniversityDao universityDao;
 
     @Inject
-    UserDao userDao;
-
-    @Inject
     ExamDao examDao;
 
-    public Map<String, Object> getUser(long id)
+    public List<University> filterUniversityByExamScore( String type, String score )
     {
-        Map<String, Object> userMap = new HashMap<>();
-        return userMap;
+        List<Exam> exams = examDao.findScoreAndType( ExamType.valueOf( type ), Double.valueOf( score ) );
+        List<University> universities = new ArrayList<>();
+        for (Exam exam: exams)
+        {
+            universities.add( universityDao.find( exam.getUniversityId() ) );
+        }
+        return universities;
     }
 }

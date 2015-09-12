@@ -60,10 +60,10 @@ public class User implements Serializable {
     private Role role;
 
     @Column( name = "country" )
-    private Country country;
+    private String country;
 
     @Column( name = "city" )
-    private City city;
+    private String city;
 
     @Column( name = "sex" )
     private Gender sex;
@@ -189,25 +189,25 @@ public class User implements Serializable {
     }
 
 
-    public Country getCountry()
+    public String getCountry()
     {
         return country;
     }
 
 
-    public void setCountry( final Country country )
+    public void setCountry( final String country )
     {
         this.country = country;
     }
 
 
-    public City getCity()
+    public String getCity()
     {
         return city;
     }
 
 
-    public void setCity( final City city )
+    public void setCity( final String city )
     {
         this.city = city;
     }

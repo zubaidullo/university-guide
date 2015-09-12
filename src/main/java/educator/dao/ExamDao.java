@@ -6,13 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
-import org.apache.commons.collections.CollectionUtils;
-
 import educator.dao.model.Exam;
-import educator.dao.model.User;
+import educator.dao.model.ExamType;
 
 
 /**
@@ -34,26 +31,21 @@ public class ExamDao extends AbstractDao<Exam> implements Dao<Exam>
     }
 
 
-    public Exam findByUniversity(long universityId)
+    public List<Exam> findByUniversity(long universityId)
     {
         Criteria criteria = getCriteria();
         criteria.add( Restrictions.eq( "universityId", universityId ) );
-        List<Exam> found = criteria.list();
-        return CollectionUtils.isEmpty( found ) ? null : found.get( 0 );
+        List<Exam> list = criteria.list();
+        return list != null ? list : new ArrayList<Exam>();
     }
 
-    public User findUserByLinkId(String linkId)
+    public List<Exam> findScoreAndType(ExamType type, Double score)
     {
         Criteria criteria = getCriteria();
-        criteria.add( Restrictions.eq( "linkId", linkId ) );
-        List<User> foundUsers = criteria.list();
-        return CollectionUtils.isEmpty( foundUsers ) ? null : foundUsers.get( 0 );
-    }
-
-    public List<User> findUsersByName( String name )
-    {
-        List<User> list = getCriteria().add( Restrictions.like( "name", name, MatchMode.ANYWHERE ) ).list();
-        return list != null ? list : new ArrayList<User>();
+        criteria.add( Restrictions.eq( "type", type ) );
+        criteria.add( Restrictions.lt( "minRequirements", score ) );
+        List<Exam> list = criteria.list();
+        return list != null ? list : new ArrayList<Exam>();
     }
 
 }
