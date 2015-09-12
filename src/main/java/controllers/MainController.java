@@ -44,4 +44,10 @@ public class MainController
 
     }
 
+    public Result guide() {
+
+        return Results.html().template( "/views/MainController/about.ftl.html" );
+
+    }
+
 }

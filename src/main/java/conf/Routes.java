@@ -18,6 +18,7 @@ package conf;
 
 
 import controllers.UniversityController;
+import controllers.UserController;
 import ninja.AssetsController;
 import ninja.Router;
 import ninja.application.ApplicationRoutes;
@@ -37,11 +38,22 @@ public class Routes implements ApplicationRoutes {
         router.GET().route("/universities/{univ-id}").with( UniversityController.class, "getUniversity");
         router.POST().route("/universities").with( UniversityController.class, "searchUniversity");
 
+
+        // User
+        router.GET().route("/profile").with( UserController.class, "profile");
+
+        // Guide
+        router.GET().route("/guide").with( MainController.class, "guide");
+
         // Tips & Advises
         router.GET().route("/tips-advises").with( MainController.class, "tipsAndAdvises");
 
         // About
         router.GET().route("/about").with( MainController.class, "about");
+
+        // Register Verification
+        router.GET().route("/about").with( MainController.class, "about");
+
 
         ///////////////////////////////////////////////////////////////////////
         // Assets (pictures / javascript)
