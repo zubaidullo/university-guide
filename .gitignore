@@ -1,0 +1,12 @@
+target
+.idea/
+*.iml
+*.log
+.DS_Store
+# --- NetBeans related --- #
+nbactions.xml
+nb-configuration.xml
+# --- end of NetBeans ---- #
+
+src/main/java/ehcache.xml
+src/main/java/logback.xml
