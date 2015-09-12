@@ -51,8 +51,8 @@ public class ApiControllerDocTesterTest extends NinjaDocTester {
                 Request.GET().url(
                         testServerUrl().path(URL_HELLO_WORLD_JSON)));
 
-        ApplicationController.SimplePojo simplePojo 
-                = response.payloadJsonAs(ApplicationController.SimplePojo.class);
+        MainController.SimplePojo simplePojo
+                = response.payloadJsonAs( MainController.SimplePojo.class);
         
         assertThat(simplePojo.content, CoreMatchers.equalTo("Hello World! Hello Json!"));
 

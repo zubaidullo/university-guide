@@ -21,14 +21,14 @@ import controllers.UniversityController;
 import ninja.AssetsController;
 import ninja.Router;
 import ninja.application.ApplicationRoutes;
-import controllers.ApplicationController;
+import controllers.MainController;
 
 public class Routes implements ApplicationRoutes {
 
     @Override
     public void init(Router router) {  
         
-        router.GET().route("/").with(ApplicationController.class, "index");
+        router.GET().route("/").with( MainController.class, "index");
 
         // University
         router.GET().route("/universities").with( UniversityController.class, "getUniversities");
@@ -44,7 +44,7 @@ public class Routes implements ApplicationRoutes {
         ///////////////////////////////////////////////////////////////////////
         // Index / Catchall shows index page
         ///////////////////////////////////////////////////////////////////////
-        router.GET().route("/.*").with(ApplicationController.class, "index");
+        router.GET().route("/.*").with( MainController.class, "index");
     }
 
 }

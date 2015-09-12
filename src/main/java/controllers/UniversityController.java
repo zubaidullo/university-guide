@@ -47,7 +47,8 @@ public class UniversityController
     {
         
         List<University> universityList = universityDao.findAll();
-        return Results.json().render( universityList );
+        return Results.html().template( "/views/UniversityController/list.ftl.html" )
+                      .render( "universities", universityList );
 
     }
 
@@ -55,14 +56,16 @@ public class UniversityController
     {
 
         University university = universityDao.find( Long.getLong( univId ));
-        return Results.json().render(university);
+        return Results.html().template( "/views/UniversityController/view.ftl.html" )
+                      .render( "university", university );
 
     }
 
     public Result searchUniversity(@Param( "examType" ) String examType)
     {
-        System.out.println(examType);
-        return Results.redirect( "/" );
+        List<University> universityList = universityDao.findAll();
+        return Results.html().template( "/views/UniversityController/list.ftl.html" )
+                      .render( "universities", universityList );
 
     }
     

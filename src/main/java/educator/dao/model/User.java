@@ -153,7 +153,7 @@ public class User implements Serializable {
     }
 
 
-    public Boolean getBlocked()
+    public Boolean isBlocked()
     {
         return blocked;
     }
