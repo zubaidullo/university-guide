@@ -17,12 +17,8 @@
 package controllers;
 
 
-import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import educator.dao.model.RegisterVerification;
-import educator.security.SecurityUtil;
-import educator.service.RegisterVerificationService;
 import ninja.Result;
 import ninja.Results;
 import ninja.params.Param;
@@ -31,12 +27,6 @@ import ninja.params.Param;
 @Singleton
 public class UserController
 {
-    @Inject
-    private RegisterVerification registerVerification;
-
-    @Inject
-    private RegisterVerificationService registerVerificationService;
-
     public Result verificationPage()
     {
         return Results.html().template( "/views/UserController/verificationMessage.ftl.html" );
@@ -44,10 +34,6 @@ public class UserController
 
     public Result sendVerification(@Param( "email" ) String email)
     {
-        RegisterVerification registerVerification = new RegisterVerification();
-        registerVerification.setEmail( email );
-        registerVerification.setVerificationCode( SecurityUtil.generateRandomCode( 15 ) );
-        registerVerificationService.sendVerificationMail( registerVerification );
         return Results.redirect( "/verification-message" );
     }
 

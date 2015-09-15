@@ -42,15 +42,15 @@ drop table if exists `universities`;
 create table `universities` (
   `id` int(11) not null auto_increment,
   `name` varchar(50) not null,
-  `address` varchar(50) not null,
+  `address` text default null,
   `is_visible` tinyint(1) default '0',
-  `description` varchar(255),
-  `country` varchar(10) default NULL,
+  `description` text default null,
+  `country` varchar(100) default NULL,
   `city` varchar(100) default NULL,
   `deadline` timestamp,
   `created_at` timestamp not null,
-  `logo_url` varchar(30) default NULL,
-  `image_url` varchar(30) default NULL,
+  `logo_url` varchar(50) default NULL,
+  `image_url` varchar(50) default NULL,
   `scholarship_opp` tinyint(1) default '0',
   primary key (`id`)
 );
@@ -62,7 +62,7 @@ create table `exams` (
   `id` int(11) not null auto_increment,
   `type` varchar(50) not null,
   `uni_id` int(11) default NULL,
-  `description` varchar(255),
+  `description` text default null,
   `min_requirement` decimal(15,2) default '0.00',
   `created_at` timestamp not null,
   primary key (`id`)

@@ -52,6 +52,9 @@ public class Routes implements ApplicationRoutes {
         router.GET().route("/about").with( MainController.class, "about");
 
         // Register Verification
+        router.GET().route("/verification-message").with( UserController.class, "verificationPage");
+        router.POST().route("/registration/first").with( UserController.class, "sendVerification");
+        router.GET().route("/registration").with( MainController.class, "registrationPage");
         router.GET().route("/about").with( MainController.class, "about");
 
 

@@ -27,7 +27,7 @@ public class ExamService
 
     public List<University> filterUniversityByExamScore( String type, String score )
     {
-        List<Exam> exams = examDao.findScoreAndType( ExamType.valueOf( type ), Double.valueOf( score ) );
+        List<Exam> exams = examDao.findScoreAndType( ExamType.valueOf( type ), Double.valueOf( score )+1.0 );
         List<University> universities = new ArrayList<>();
         for (Exam exam: exams)
         {

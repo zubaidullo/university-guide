@@ -1,0 +1,1 @@
+-- INSERT INTO universities VALUES (id,name,address,is_visible,country,city,deadline,created_at,logo_url,image_url,scholarship_opp,description)

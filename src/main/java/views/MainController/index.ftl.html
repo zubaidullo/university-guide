@@ -44,13 +44,15 @@
               <div class="container"><br>
                 <div class="banner-info text-center">
                   <h3>Enter your test score, find your University</h3><br>
-                  <div class="col-sm-10 dropdown-buttons">
-                    <div class="col-sm-2 dropdown-button"></div>
+                  <div class="col-sm-12 dropdown-buttons">
+                    <div class="col-sm-1 dropdown-button"></div>
                     <form id="search_form" action="/universities" method="POST">
                       <div class="col-sm-3 dropdown-button">
                         <div class="section_1">
                           <select id="examType" name="examType" class="frm-field required">
                             <option value="SAT">SAT</option>
+                            <option value="TOEFL">TOEFL</option>
+                            <option value="ORT">ORT</option>
                           </select>
                         </div>
                       </div>
@@ -61,6 +63,10 @@
                       </div>
                       <div class="col-sm-4 submit_button">
                           <input type="submit" value="Search for University">
+                      </div>
+                      <div class="col-sm-12 submit_button">
+                        <br>
+                        <a href="/registration" class="btn btn-primary" style="width: 40%; background-color: #199510;color: #fff;text-transform: uppercase;font-size: 1.1em;font-weight: 500;border: none;padding: 9px 0px;outline: none;">Create your exam organizer</a>
                       </div>
                     </form>
                     <div class="clearfix"> </div>
@@ -80,11 +86,11 @@
             <div class="section-content">
               <article>
                 <h3 class="date"><i class="fa fa-file-o"></i>What is SAT?</h3>
-                <a href="/guide">The SAT is a standardized test widely used for college admissions in the United States. It was first introduced in 1926, and its name and scoring have changed several times, being originally called the Scholastic Aptitude Test, then the Scholastic Assessment Test, then the SAT Reasoning Test, and now simply the SAT.</a>
+                The SAT is a standardized test widely used for college admissions in the United States. It was first introduced in 1926, and its name and scoring have changed several times, being originally called the Scholastic Aptitude Test, then the Scholastic Assessment Test, then the SAT Reasoning Test, and now simply the SAT.
               </article>
               <article>
                 <h3 class="date"><i class="fa fa-file-o"></i>What is TOEFL?</h3>
-                <a href="/guide">Test of English as a Foreign Language (TOEFL, /ˈtoʊfəl/, toh-fəl) is a standardized test of English language proficiency for non-native English language speakers wishing to enroll in US universities. The test is accepted by many English-speaking academic and professional institutions. TOEFL is one of the two major English-language tests in the world, the other being the IELTS.</a>
+                Test of English as a Foreign Language (TOEFL, /ˈtoʊfəl/, toh-fəl) is a standardized test of English language proficiency for non-native English language speakers wishing to enroll in US universities. The test is accepted by many English-speaking academic and professional institutions. TOEFL is one of the two major English-language tests in the world, the other being the IELTS.
               </article>
             </div><!-- /.section-content -->
           </div><!-- /.news-small -->

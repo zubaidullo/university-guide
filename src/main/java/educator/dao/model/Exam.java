@@ -48,6 +48,15 @@ public class Exam implements Serializable {
     }
 
 
+    public Exam( final ExamType type, final long universityId, final Double minRequirements )
+    {
+        this.type = type;
+        this.universityId = universityId;
+        this.minRequirements = minRequirements;
+        this.createdAt = new Date();
+    }
+
+
     public long getId()
     {
         return id;

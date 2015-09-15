@@ -13,7 +13,7 @@
       <div class="courses_banner">
         <div class="container">
           <br><br><br>
-          <form id="search_form" action="/users/register" method="POST">
+          <form id="search_form" action="/registration/first" method="POST">
             <div class="col-sm-3"></div>
             <div class="col-sm-3">
               <div class="input-group">
@@ -32,7 +32,7 @@
           <#list universities as university>
             <div class="col-md-4 faculty_grid" style="padding-top: 10px">
               <figure class="team_member">
-                <img src="/assets/img/${university.imageUrl}" class="img-responsive wp-post-image" alt=""/>
+                <img src="/assets/img/universities/${university.logoUrl}" class="img-responsive wp-post-image" alt=""/>
                 <div></div>
                 <figcaption><h3 class="person-title"><a href="/universities/${university.id}">${university.name}</a></h3>
                   <span class="person-deg"><#if university.address??>Address: ${university.address}</#if></span>

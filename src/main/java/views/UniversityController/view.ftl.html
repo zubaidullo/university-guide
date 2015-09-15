@@ -10,6 +10,48 @@
 
   <@layout.myLayout "University Guide in Central Asia | University information">
 
-      content view...........
+      <!-- //banner -->
+      <div class="courses_box1">
+        <div class="container">
+          <div class="col-md-6">
+            <img src="/assets/img/universities/${university.imageUrl}" class="img-responsive" alt=""/>
+            <div class="wrapper">
+
+              <div class="col_5">
+                <i class="fa fa-home  icon2"></i>
+                <div class="box">
+                  <br>
+                  <p class="marTop9">${university.address}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 about_left">
+            <h1>${university.name}</h1>
+            <p>${university.description}</p>
+            <ul class="about_links">
+              <h3>Minimum requirements:</h3>
+              <#list exams as exam>
+                <div class="col-sm-4">
+                  <li><h3>${exam.type}: <span>${exam.minRequirements}</span></h3></li>
+                </div>
+              </#list>
+            </ul>
+          </div>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+      <div class="col-md-12 text-center">
+        <h1 style="color: white">Deadline for Registration</h1>
+      </div>
+      </div>
+      <div class="bg" style="min-height: 250px">
+        <div class="container">
+          <div class="timer_wrap">
+            <div id="counter"> </div>
+          </div>
+        </div>
+      </div>
+      </div>
 
   </@layout.myLayout>

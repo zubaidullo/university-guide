@@ -69,9 +69,11 @@ public class UniversityController
 
     public Result getUniversity(@PathParam( "univ-id" ) String univId)
     {
-        University university = universityDao.find( Long.getLong( univId ) );
+        University university = universityDao.find( Long.parseLong(univId) );
+        List<Exam> exams = examDao.findByUniversity( university.getId() );
         return Results.html().template( "/views/UniversityController/view.ftl.html" )
-                      .render( "university", university );
+                      .render( "university", university )
+                      .render( "exams", exams );
 
     }
 
@@ -100,11 +102,13 @@ public class UniversityController
     public Result addUniversity(@Param( "name" ) String name, @Param( "country" ) String country,
                                 @Param( "deadline" ) String deadline, @Param( "scholarship" ) String scholarship,
                                 @Param( "address" ) String address, @Param( "description" ) String description,
-                                @Param( "imageUrl" ) String imageUrl, @Param( "sat" ) String sat)
+                                @Param( "logoUrl" ) String logoUrl, @Param( "imageUrl" ) String imageUrl,
+                                @Param( "sat" ) String sat, @Param( "toefl" ) String toefl, @Param( "ort" ) String ort)
     {
         University university = new University();
         university.setName( name );
         university.setCountry( country );
+        university.setLogoUrl( logoUrl );
         university.setImageUrl( imageUrl );
         SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd" );
         try
@@ -123,11 +127,21 @@ public class UniversityController
         university.setAddress( address );
         university.setDescription( description );
         universityDao.save( university );
-        Exam exam = new Exam();
-        exam.setType( ExamType.SAT );
-        exam.setUniversityId( university.getId() );
-        exam.setMinRequirements( Double.valueOf( sat ) );
-        examDao.save( exam );
+        if (!sat.isEmpty() && Double.valueOf( sat )>0)
+        {
+            Exam examSAT = new Exam( ExamType.SAT, university.getId(), Double.valueOf( sat ) );
+            examDao.save( examSAT );
+        }
+        if (!toefl.isEmpty()  && Double.valueOf( toefl )>0)
+        {
+            Exam examTOEFL = new Exam(ExamType.TOEFL, university.getId(), Double.valueOf( toefl ) );
+            examDao.save( examTOEFL );
+        }
+        if (!ort.isEmpty()  && Double.valueOf( ort )>0)
+        {
+            Exam examORT = new Exam(ExamType.ORT, university.getId(), Double.valueOf( ort ) );
+            examDao.save( examORT );
+        }
         return Results.redirect( "/universities" );
     }
 }

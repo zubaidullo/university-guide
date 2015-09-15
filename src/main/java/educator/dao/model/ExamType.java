@@ -2,7 +2,9 @@ package educator.dao.model;
 
 public enum ExamType
 {
-    SAT("SAT");
+    SAT("SAT"),
+    TOEFL("TOEFL"),
+    ORT("ORT");
 
     private String orgTypeCode;
      ExamType( final String type )

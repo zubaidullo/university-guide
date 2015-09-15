@@ -46,8 +46,13 @@ public class MainController
 
     public Result guide() {
 
-        return Results.html().template( "/views/MainController/about.ftl.html" );
+        return Results.html().template( "/views/MainController/guide.ftl.html" );
 
     }
 
+    public Result registrationPage() {
+
+        return Results.html().template( "/views/MainController/registration.ftl.html" );
+
+    }
 }
